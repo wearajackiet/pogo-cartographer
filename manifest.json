@@ -1,0 +1,42 @@
+{
+    "name": "Pogo Cartographer",
+    "version": "1.0",
+    "description": "Add PokeStops to a Google MyMaps using coordinates from pokemongomap.info",
+    "manifest_version": 2,
+
+    "permissions": [
+        "activeTab",
+        "declarativeContent",
+        "storage",
+        "https://www.pokemongomap.info/"
+    ],
+
+    "background": {
+        "scripts": ["resources/jquery-3.3.1.min.js", "js/background.js"],
+        "persistent": false
+    },
+    "page_action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "images/pokestop16.png",
+            "32": "images/pokestop32.png",
+            "48": "images/pokestop48.png",
+            "128": "images/pokestop100.png"
+        }
+    },
+    "icons": {
+        "16": "images/pokestop16.png",
+        "32": "images/pokestop32.png",
+        "48": "images/pokestop48.png",
+        "128": "images/pokestop100.png"
+    },
+
+    "content_scripts": [{
+        "matches": ["https://www.pokemongomap.info/*"],
+        "js": ["resources/jquery-3.3.1.min.js", "js/contentScript.js"],
+        "run_at": "document_end",
+        "all_frames": true
+    }],
+
+    "web_accessible_resources": ["js/web.js"]
+}
