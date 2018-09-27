@@ -21,6 +21,7 @@ getStop.onclick = function() {
         chrome.tabs.sendMessage(tabs[0].id, {ready: "ready!"}, function(response) {
             setFields(response);
             const {title, lat, long} = reponse;
+            chrome.extension.getBackgroundPage().console.log(`main.js: ${lat}, ${long}`);
             chrome.storage.sync.set({title, lat, long});
         });
     });
