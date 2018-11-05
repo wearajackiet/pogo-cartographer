@@ -1,3 +1,6 @@
+/**
+ * Ensures that this only runs on pokemongomap.info.
+ */
 chrome.runtime.onInstalled.addListener(function() {
     chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
         chrome.declarativeContent.onPageChanged.addRules([{
