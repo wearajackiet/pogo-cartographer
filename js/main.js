@@ -7,7 +7,6 @@ chrome.storage.sync.get('data', function(data) {
 });
 
 function setFields(data) {
-    chrome.extension.getBackgroundPage().console.log(data);
     if (data.hasOwnProperty('title')) {
         stopName.value = data.title;
     }
@@ -21,7 +20,6 @@ getStop.onclick = function() {
         chrome.tabs.sendMessage(tabs[0].id, {ready: "ready!"}, function(response) {
             setFields(response);
             const {title, lat, long} = reponse;
-            chrome.extension.getBackgroundPage().console.log(`main.js: ${lat}, ${long}`);
             chrome.storage.sync.set({title, lat, long});
         });
     });
