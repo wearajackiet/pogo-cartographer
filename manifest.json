@@ -1,14 +1,14 @@
 {
     "name": "Pogo Cartographer",
     "version": "1.0",
-    "description": "Add PokeStops to a Google MyMaps using coordinates from pokemongomap.info",
+    "description": "Add PokeStops to a Google MyMaps using coordinates from pogomap.info",
     "manifest_version": 2,
 
     "permissions": [
         "activeTab",
         "declarativeContent",
         "storage",
-        "https://www.pokemongomap.info/"
+        "https://www.pogomap.info/"
     ],
 
     "background": {
@@ -32,7 +32,7 @@
     },
 
     "content_scripts": [{
-        "matches": ["https://www.pokemongomap.info/*"],
+        "matches": ["https://www.pogomap.info/*"],
         "js": ["resources/jquery-3.3.1.min.js", "js/contentScript.js"],
         "run_at": "document_end",
         "all_frames": true
